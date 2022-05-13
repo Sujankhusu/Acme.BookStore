@@ -5,18 +5,16 @@ namespace Acme.BookStore.Books
 {
     public class CreateUpdateBookDto
     {
-        [Required]
-        [StringLength(128)]
+        public Guid? TenantId { get; set; }
+
+        public Guid AuthorId { get; set; }
+
         public string Name { get; set; }
 
-        [Required]
-        public BookType Type { get; set; } = BookType.Undefined;
+        public BookType Type { get; set; } 
+      
+        public DateTime PublishDate { get; set; } 
 
-        [Required]
-        [DataType(DataType.Date)]
-        public DateTime PublishDate { get; set; } = DateTime.Now;
-
-        [Required]
         public float Price { get; set; }
     }
 }
